@@ -6,8 +6,8 @@ This project is created for our code cuts
 
 In the project directory, you can run:
 
-- Install packages with `npm install`
-- Start the app with `npm start`
-- Test the app with `npm test`
+- `npm install` to install all the packages
+- `npm start` to start the app
+- `npm test` for running a test
 
 Now you can visit localhost:3000 from your browser.
