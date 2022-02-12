@@ -6,8 +6,6 @@ This project is created for our code cuts
 
 In the project directory, you can run:
 
-### To run this project:
-
 - Install packages with `npm install`
 - Start the app with `npm start`
 - Test the app with `npm test`
