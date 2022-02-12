@@ -1,0 +1,36 @@
+.input {
+  @apply w-full mt-2 mb-3 focus:outline-none;
+  height: 44px;
+  padding: 14px 15px;
+  border-radius: 0.25rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f2f6f8;
+}
+
+.inputLabel {
+  @apply text-sm font-medium;
+  color: #333;
+}
+
+.formContainer {
+  @apply bg-white p-6 rounded w-full;
+  max-width: 34rem;
+}
+
+.submitBtn {
+  @apply rounded p-4 text-white text-center w-full mt-4 focus:outline-none;
+  background-color: #11823b;
+
+  &:hover {
+    background-color: #91f086;
+  }
+}
+
+.logoContainer {
+  width: 130px;
+}
+
+.link {
+  @apply text-secondary-green underline text-sm;
+}
