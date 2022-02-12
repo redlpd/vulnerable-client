@@ -31,6 +31,8 @@ module.exports = {
   rules: {
     "jsx-a11y/label-has-associated-control": 0,
     "jsx-a11y/click-events-have-key-events": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0
   },
 }
