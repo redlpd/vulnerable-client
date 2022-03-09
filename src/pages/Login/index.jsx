@@ -9,6 +9,7 @@ export const LoginMutation = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
+      userId
     }
   }
 `
@@ -28,7 +29,8 @@ const Login = () => {
       },
       onCompleted: (data) => {
         const { login } = data
-        setCookies(login.token)
+        setCookies(login.token, 'authToken')
+        setCookies(login.userId, 'userId')
         if (login.token) {
           history('/home')
         }

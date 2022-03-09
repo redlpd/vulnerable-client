@@ -2,32 +2,15 @@ import { useState } from 'react'
 import styles from './styles.module.scss'
 import logo from '../../icons/logo.png'
 import { Link } from 'react-router-dom'
-import { gql, useMutation } from '@apollo/client'
+import { useMutation } from '@apollo/client'
+import { SignupMutation } from '../../gql/mutations'
 
-export const SignupMutation = gql`
-  mutation Signup(
-    $fullName: String!
-    $address: String!
-    $email: String!
-    $password: String!
-    $passwordConfirmation: String!
-  ) {
-    signUp(
-      fullName: $fullName
-      address: $address
-      email: $email
-      password: $password
-      passwordConfirmation: $passwordConfirmation
-    ) {
-      id
-    }
-  }
-`
 const Signup = () => {
   const [success, setSuccess] = useState(false)
   const [fullName, setFullName] = useState('')
   const [address, setAddress] = useState('')
   const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
@@ -47,6 +30,7 @@ const Signup = () => {
         fullName: fullName,
         address: address,
         email: email,
+        username: username,
         password: password,
         passwordConfirmation: passwordConfirmation
       },
@@ -102,7 +86,7 @@ const Signup = () => {
                   id='fullName'
                   className={styles.input}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder='Ovuvuevuevue enyetuenwuevue ugbemugbem osas'
+                  placeholder='Elliot Anderson'
                 />
               </div>
             </div>
@@ -133,6 +117,21 @@ const Signup = () => {
                   className={styles.input}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder='enyetuenwuevue@email.com'
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor='username' className={styles.inputLabel}>
+                Username
+              </label>
+              <div>
+                <input
+                  type='text'
+                  id='username'
+                  className={styles.input}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder='mrrobot'
                 />
               </div>
             </div>

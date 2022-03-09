@@ -1,0 +1,32 @@
+.navbarContainer {
+  @apply p-4;
+  background: #11823b;
+}
+
+.avatar {
+  @apply flex items-center justify-center text-xl font-bold bg-white focus:outline-none mr-4;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../icons/logo.png');
+}
+
+.accountMenuContainer {
+  @apply absolute mt-5 flex flex-col mr-4;
+  border-radius: 3px;
+  width: 10rem;
+  left: -130px;
+  background: #11823b;
+  box-shadow: 0px 10px 30px rgb(209 213 223 / 50%);
+}
+
+.accountMenuItem {
+  @apply p-3 text-left w-full;
+
+  &:hover {
+    background: hsl(142, 57%, 41%);
+  }
+}
+
