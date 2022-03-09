@@ -16,3 +16,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.global-container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 1024px) {
+  .global-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1216px) {
+  .global-container {
+    max-width: 1152px;
+  }
+}
+
+@media (min-width: 1408px) {
+  .global-container {
+    max-width: 1344px;
+  }
+}
