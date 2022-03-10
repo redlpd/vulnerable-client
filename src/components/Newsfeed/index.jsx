@@ -7,7 +7,6 @@ import { ListPostsQuery } from '../../gql/queries'
 import Post from './post'
 
 const Newsfeed = ({ posts, currentUser }) => {
-  console.log(posts)
   const [createPost, { loading: postLoading }] = useMutation(CreatePostMutation)
 
   const [post, setPost] = useState('')
