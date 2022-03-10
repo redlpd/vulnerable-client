@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { removeToken } from '../../helper/utils'
+import { removeToken, removeUserId } from '../../helper/utils'
 import styles from './styles.module.scss'
 import { ListPostsQuery } from '../../gql/queries'
 import { useQuery } from '@apollo/client'
@@ -15,6 +15,7 @@ const Home = () => {
 
   const handleLogout = () => {
     removeToken()
+    removeUserId()
     history('/login')
   }
 

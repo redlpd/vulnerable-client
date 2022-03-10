@@ -86,6 +86,25 @@ export const UpdatePostMutation = gql`
   }
 `
 
+export const CreateCommentMutation = gql`
+  mutation CreateComment($content: String!, $postId: String!, $userId: String) {
+    createComment(content: $content, postId: $postId, userId: $userId) {
+      id
+      user {
+        id
+        role
+        email
+        status
+        fullName
+        username
+        isPrivate
+        governmentId
+      }
+      content
+    }
+  }
+`
+
 export const DeletePostMutation = gql`
   mutation DeletePost($postId: String!) {
     deletePost(postId: $postId) {

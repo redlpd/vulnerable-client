@@ -6,13 +6,13 @@
 
 .input {
   @apply w-full mt-2 mb-3 focus:outline-none;
-  height: 44px;
+  height: 60px;
   padding: 14px 15px;
   border-radius: 0.25rem;
   border-style: solid;
   border-width: 1px;
   border-color: #f2f6f8;
-  background: rgb(209 213 223);
+  background: #e7e7e7;
 }
 
 .avatar {
@@ -26,12 +26,28 @@
 }
 
 .postBtn {
-  @apply rounded px-4 py-1 text-white text-center focus:outline-none;
+  @apply rounded px-4 py-1 text-white text-center focus:outline-none ml-4;
   background-color: #11823b;
+
+  &.danger {
+    color: #808080; 
+    background-color: white;
+    border: 1px solid #808080;
+  }
 }
 
 .action {
-  @apply absolute right-0 top-0 mr-2 mt-1 font-bold;
+  @apply absolute right-0 top-0 mr-3 mt-3 font-bold;
   font-size: 11px;
   color: #11823b;
+}
+
+.divider {
+  @apply mt-4;
+  border-top: 1px solid #dddddd;
+}
+
+.commentContainer {
+  @apply mb-4 pb-4;
+  border-bottom: 1px solid #dddddd;
 }
