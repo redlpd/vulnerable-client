@@ -27,7 +27,6 @@ const Post = ({ data }) => {
     })
   }
 
-  console.log(data)
   return (
     <div className='my-14'>
       {data.map((post) => (
