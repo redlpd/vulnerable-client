@@ -47,3 +47,43 @@ export const GetCurrentUserQuery = gql`
     }
   }
 `
+
+export const GetUserQuery = gql`
+  query GetUser($userId: String) {
+    getUser(userId: $userId) {
+      id
+      email
+      fullName
+      username
+      address
+      posts {
+        id
+        user {
+          id
+          role
+          email
+          status
+          fullName
+          username
+          isPrivate
+          governmentId
+        }
+        content
+        comments {
+          id
+          user {
+            id
+            role
+            email
+            status
+            fullName
+            username
+            isPrivate
+            governmentId
+          }
+          content
+        }
+      }
+    }
+  }
+`

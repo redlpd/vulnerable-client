@@ -1,30 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getUserId, removeToken, removeUserId } from '../../helper/utils'
-import styles from './styles.module.scss'
-import { GetCurrentUserQuery, ListPostsQuery } from '../../gql/queries'
 import { useQuery } from '@apollo/client'
+import { GetUserQuery } from '../../gql/queries'
+import { getUserId, removeToken, removeUserId } from '../../helper/utils'
+import { useNavigate } from 'react-router-dom'
+import styles from './styles.module.scss'
 import Newsfeed from '../../components/Newsfeed'
 
-const Home = () => {
-  const { loading, data } = useQuery(ListPostsQuery)
-  const { data: currentUserData, loading: currentUserLoading } = useQuery(
-    GetCurrentUserQuery,
-    {
-      variables: {
-        userId: getUserId()
-      }
+const Profile = () => {
+  const { data, loading } = useQuery(GetUserQuery, {
+    variables: {
+      userId: getUserId()
     }
-  )
+  })
 
-  const [showAccountMenu, setShowAccountMenu] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+  const [showAccountMenu, setShowAccountMenu] = useState(false)
 
   useEffect(() => {
-    if (currentUserData) {
-      setCurrentUser(currentUserData.getCurrentUser)
+    if (data) {
+      setCurrentUser(data.getUser)
     }
-  }, [currentUserData])
+  }, [data])
 
   const history = useNavigate()
 
@@ -35,7 +31,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div>
       <div className={styles.navbarContainer}>
         <div className='flex items-center justify-between text-white global-container'>
           <a href='/home' className='text-2xl'></a>
@@ -76,7 +72,7 @@ const Home = () => {
 
       <div className='global-container flex justify-center'>
         <div className='px-5 mt-10 w-full' style={{ maxWidth: '800px' }}>
-          {loading || currentUserLoading ? (
+          {!currentUser || loading ? (
             <div className='w-full h-full flex items-center justify-center'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -100,12 +96,30 @@ const Home = () => {
               </svg>
             </div>
           ) : (
-            <Newsfeed posts={data.listPosts} currentUser={currentUser} />
+            <div className='flex w-full justify-between items-start'>
+              <div className={styles.infoContainer}>
+                <div className='flex justify-center'>
+                  <div className={styles.infoAvatar}>
+                    {currentUser && currentUser.fullName
+                      ? currentUser.fullName.substring(0, 1)
+                      : ''}
+                  </div>
+                </div>
+                <p className='mt-2 text-sm'>{currentUser.fullName}</p>
+                <p className='mt-2 text-sm'>{currentUser.address}</p>
+              </div>
+              <div className='w-3/4'>
+                <Newsfeed
+                  posts={data.getUser.posts}
+                  currentUser={currentUser}
+                />
+              </div>
+            </div>
           )}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
-export default Home
+export default Profile

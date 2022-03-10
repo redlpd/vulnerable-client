@@ -9,6 +9,7 @@ import {
 import { publicRoutes } from '../helper/routes'
 import { getToken } from '../helper/utils'
 import Home from './Home'
+import Profile from './Profile'
 
 export const PrivateRoute = ({ children }) => {
   let location = useLocation()
@@ -49,6 +50,15 @@ const Main = () => {
             element={
               <PrivateRoute>
                 <Home />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path='/:username'
+            element={
+              <PrivateRoute>
+                <Profile />
               </PrivateRoute>
             }
           />

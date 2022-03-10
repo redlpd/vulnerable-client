@@ -16,13 +16,11 @@
 }
 
 .avatar {
-  @apply flex items-center justify-center text-xl font-bold bg-white focus:outline-none mr-4;
-  height: 30px;
+  @apply flex items-center justify-center text-xl font-bold focus:outline-none mr-4 text-white;
+  height: 35px;
   width: 35px;
   border-radius: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url('../../icons/logo.png');
+  background-color: #11823b;
 }
 
 .postBtn {

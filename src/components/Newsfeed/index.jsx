@@ -6,7 +6,8 @@ import styles from './styles.module.scss'
 import { ListPostsQuery } from '../../gql/queries'
 import Post from './post'
 
-const Newsfeed = ({ posts }) => {
+const Newsfeed = ({ posts, currentUser }) => {
+  console.log(posts)
   const [createPost, { loading: postLoading }] = useMutation(CreatePostMutation)
 
   const [post, setPost] = useState('')
@@ -37,10 +38,16 @@ const Newsfeed = ({ posts }) => {
   }
 
   return (
-    <div>
+    <div className='w-full'>
       <div className={styles.createPostContainer}>
         <div className='flex items-center'>
-          <a href='/test' className={styles.avatar} />
+          <div className='w-10 mr-2'>
+            <a href={`/${currentUser.username}`} className={styles.avatar}>
+              {currentUser && currentUser.fullName
+                ? currentUser.fullName.substring(0, 1)
+                : ''}
+            </a>
+          </div>
           <textarea
             type='text'
             value={post}
@@ -60,7 +67,7 @@ const Newsfeed = ({ posts }) => {
           </button>
         </div>
       </div>
-      <Post data={posts.listPosts} />
+      <Post data={posts} />
     </div>
   )
 }
