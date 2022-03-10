@@ -3,10 +3,19 @@ import React, { useState } from 'react'
 import { UpdatePostMutation } from '../../gql/mutations'
 import styles from './styles.module.scss'
 import Comment from './comment'
-import { getUserId } from '../../helper/utils'
+import { getToken, getUserId } from '../../helper/utils'
 
 const Post = ({ data }) => {
-  const [updatePost] = useMutation(UpdatePostMutation)
+  const [updatePost] = useMutation(
+    UpdatePostMutation,
+    {
+      context: {
+        headers: {
+          Authorization: `Bearer ${getToken()}`
+        }
+      }
+    }
+  )
 
   const [updatedPost, setUpdatedPost] = useState('')
   const [showUpdateInput, setShowUpdateInput] = useState('')
