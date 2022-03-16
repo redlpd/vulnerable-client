@@ -112,3 +112,21 @@ export const DeletePostMutation = gql`
     }
   }
 `
+
+export const AddCreditsMutation = gql`
+  mutation AddCredits($credits: Int!) {
+    addCredits(credits: $credits) {
+      id
+      amount
+    }
+  }
+`
+
+export const SendCreditsMutation = gql`
+  mutation SendCredits($credits: Int!, $email: String!) {
+    sendCredits(credits: $credits, email: $email) {
+      id
+      amount
+    }
+  }
+`

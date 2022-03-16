@@ -6,16 +6,13 @@ import Comment from './comment'
 import { getToken, getUserId } from '../../helper/utils'
 
 const Post = ({ data }) => {
-  const [updatePost] = useMutation(
-    UpdatePostMutation,
-    {
-      context: {
-        headers: {
-          Authorization: `Bearer ${getToken()}`
-        }
+  const [updatePost] = useMutation(UpdatePostMutation, {
+    context: {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
       }
     }
-  )
+  })
 
   const [updatedPost, setUpdatedPost] = useState('')
   const [showUpdateInput, setShowUpdateInput] = useState('')
@@ -71,7 +68,7 @@ const Post = ({ data }) => {
                 className={styles.input}
               />
             ) : (
-              <p className='text-sm'>{post.content}</p>
+              <div dangerouslySetInnerHTML={{ __html: post.content }} />
             )}
           </div>
           {post.id !== showUpdateInput && getUserId() === post.user.id && (

@@ -1,0 +1,25 @@
+.input {
+  @apply w-full mt-2 mb-3 focus:outline-none;
+  height: 40px;
+  padding: 14px 15px;
+  border-radius: 0.25rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f2f6f8;
+  background: #f8f8f8;
+
+  &::placeholder {
+    font-size: 14px;
+  }
+}
+
+.modalHeader {
+  @apply text-base font-medium mb-4 text-center p-4 text-white rounded-lg rounded-b-none;
+  border-bottom: 1px solid #dddddd;
+  background-color: #11823b;
+}
+
+.modalCancelBtn {
+  @apply py-1 px-2 bg-white rounded;
+  border: 1px solid #9e9e9e;
+}

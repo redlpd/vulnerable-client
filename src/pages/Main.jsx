@@ -55,6 +55,15 @@ const Main = () => {
           />
 
           <Route
+            path='/settings'
+            element={
+              <PrivateRoute>
+                <div className='text-red text-3xl'>Settings</div>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
             path='/:username'
             element={
               <PrivateRoute>

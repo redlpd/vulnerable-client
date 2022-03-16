@@ -87,3 +87,19 @@ export const GetUserQuery = gql`
     }
   }
 `
+
+export const ListCreditsHistoryQuery = gql`
+  query ListCreditsHistory {
+    listCreditsHistory {
+      amount
+      id
+    }
+  }
+`
+export const GetUserCreditsQuery = gql`
+  query GetUserCredits {
+    getUserCredits {
+      amount
+    }
+  }
+`

@@ -38,7 +38,9 @@ const Home = () => {
     <>
       <div className={styles.navbarContainer}>
         <div className='flex items-center justify-between text-white global-container'>
-          <a href='/home' className='text-2xl'>DEMO</a>
+          <a href='/home' className='text-2xl'>
+            DEMO
+          </a>
           <div className='relative'>
             <button
               type='button'
