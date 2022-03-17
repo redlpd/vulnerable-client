@@ -35,7 +35,7 @@
 }
 
 .action {
-  @apply absolute right-0 top-0 mr-3 mt-3 font-bold;
+  @apply absolute right-0 top-0 mr-3 mt-3 font-bold flex items-center;
   font-size: 11px;
   color: #11823b;
 }

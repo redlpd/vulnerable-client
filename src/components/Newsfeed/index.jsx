@@ -66,7 +66,7 @@ const Newsfeed = ({ posts, currentUser }) => {
           </button>
         </div>
       </div>
-      <Post data={posts} />
+      <Post data={posts} currentUser={currentUser} />
     </div>
   )
 }
